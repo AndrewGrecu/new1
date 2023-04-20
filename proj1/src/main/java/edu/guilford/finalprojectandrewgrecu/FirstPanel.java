@@ -161,16 +161,15 @@ public class FirstPanel extends javax.swing.JFrame {
         // Replace these with the actual names of your JLabels
         students = new ArrayList<>();
         try {
-            students = readDataFile("src/finalprojectandrewgrecu/finalEntries.txt");
+            students = readDataFile(FinalProjectAndrewGrecu.class.getResource("/finalEntries.txt").toURI()));
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
-    private static ArrayList<driver> readDataFile(String filePath) throws IOException {
+    private static ArrayList<driver> readDataFile(String filePath) throws IOException, URISyntaxException {
         ArrayList<driver> data = new ArrayList<>();
-        try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(new File(FinalProjectAndrewGrecu.class.getResource(filePath).toURI())))) {
             String line;
             while ((line = br.readLine()) != null) {
                 String[] tokens = line.split("\\s+");
