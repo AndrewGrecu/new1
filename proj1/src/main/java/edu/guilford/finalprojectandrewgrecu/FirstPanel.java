@@ -161,7 +161,7 @@ public class FirstPanel extends javax.swing.JFrame {
         // Replace these with the actual names of your JLabels
         students = new ArrayList<>();
         try {
-            students = readDataFile(FinalProjectAndrewGrecu.class.getResource("/finalEntries.txt").toURI()));
+            students = readDataFile("/finalEntries.txt");
         } catch (IOException e) {
             e.printStackTrace();
         }
