@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package finalprojectandrewgrecu;
+package edu.guilford.finalprojectandrewgrecu;
 
 import java.util.List;
 import java.io.BufferedReader;
@@ -10,6 +10,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URISyntaxException;
+
 import static java.nio.file.Files.size;
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -120,13 +122,14 @@ public class FirstPanel extends javax.swing.JFrame {
 
     /**
      * Creates new form FirstPanel
+     * @throws URISyntaxException
      */
-    public FirstPanel() {
+    public FirstPanel() throws URISyntaxException {
         initComponents();
         students = new ArrayList<driver>();
 
         try {
-            Scanner fileScan = new Scanner(new File("src/finalprojectandrewgrecu/finalEntries.txt"));
+            Scanner fileScan = new Scanner(new File(FinalProjectAndrewGrecu.class.getResource("/finalEntries.txt").toURI()));
             while (fileScan.hasNext()) {
                 double GPA = fileScan.nextDouble();
                 double SAT = fileScan.nextDouble();

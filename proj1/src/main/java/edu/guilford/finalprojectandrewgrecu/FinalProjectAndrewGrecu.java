@@ -2,10 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package finalprojectandrewgrecu;
+package edu.guilford.finalprojectandrewgrecu;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
@@ -21,18 +22,24 @@ public class FinalProjectAndrewGrecu {
 
     /**
      * @param args the command line arguments
+     * @throws URISyntaxException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws URISyntaxException {
         // TODO code application logic here
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FirstPanel().setVisible(true);
+                try {
+                    new FirstPanel().setVisible(true);
+                } catch (URISyntaxException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
             }
             
         });
         ArrayList<driver> students = new ArrayList<driver>();
         try {
-            Scanner fileScan = new Scanner(new File("proj1/src/main/java/edu/guilford/finalEntries.txt"));
+            Scanner fileScan = new Scanner(new File(FinalProjectAndrewGrecu.class.getResource("/finalEntries.txt").toURI()));
             Random randGenerator = new Random();
 
             while (fileScan.hasNext()) {
